@@ -22,7 +22,7 @@ int main()
 	GraphicsEngine::Get()->SetVideoMode(600, 400,
 			16, GraphicsEngine::VIDEOMODE_WINDOWED);
 	TileMapper tileMapper;
-	if (!tileMapper.Load("./resources/terrainmap.json.map")) {
+	if (!tileMapper.Load("./resources/terrainmap.map")) {
 		GraphicsEngine::Destroy();
 		return -1;
 	}

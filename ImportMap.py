@@ -7,7 +7,8 @@ if len(sys.argv) < 2:
 
 print("Reading " + sys.argv[1] + "...")
 
-with open(sys.argv[1]) as inputFile:
+inputFileName = sys.argv[1]
+with open(inputFileName) as inputFile:
     jsonData = json.load(inputFile)
 
 print("Done!")
@@ -18,7 +19,8 @@ mapData = jsonData["map"]["data"]
 
 print("Map: " + width + "x" + height)
 
-destFileName = sys.argv[1] + '.map'
+
+destFileName = inputFileName.replace(".json", ".map")
 
 print("Writing " + destFileName + "...")
 
