@@ -17,16 +17,6 @@
 
 #include <string.h>
 
-const static int kTileMap[] = {
-		0, 0, 1, 0, 1, 1, 0, 0,
-		0, 0, 1, 0, 1, 1, 0, 0,
-		0, 1, 0, 1, 0, 0, 0, 0,
-		1, 0, 0, 0, 1, 0, 0, 1,
-		0, 0, 0, 0, 1, 0, 0, 0,
-		1, 1, 1, 1, 1, 0, 0, 1
-	};
-
-
 TileMapper::TileMapper()
 	:
 	fMapWidth(0),
@@ -51,20 +41,12 @@ TileMapper::Load(const char* fileName)
 	if (!file.IsValid())
 		return false;
 
-
 	file.Read(&fMapWidth, sizeof(fMapWidth));
 	file.Read(&fMapHeight, sizeof(fMapHeight));
 
 	int mapSize = fMapWidth * fMapHeight;
 	fTileMap = new uint8[mapSize];
 	file.Read(fTileMap, mapSize);
-
-	for (int i = 0; i < mapSize; i++) {
-		std::cout << fTileMap[i] << ",";
-	}
-	std::cout << std::endl;
-	// TODO: Load for real
-	//::memcpy(fTileMap, kTileMap, sizeof(kTileMap));
 
 	return true;
 }
